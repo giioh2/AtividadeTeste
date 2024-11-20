@@ -1,0 +1,15 @@
+def teste_login():
+    driver = webdriver.Chrome()
+    driver.get("http://localhost:8000/login")
+    
+    driver.find_element(By.NAME, "email").send_keys("joao@example.com")
+    driver.find_element(By.NAME, "senha").send_keys("Senha123")
+    driver.find_element(By.ID, "btn_login").click()
+    
+    # Verificar se o login foi realizado com sucesso
+    time.sleep(2)
+    assert "dashboard" in driver.current_url
+    print("Teste de Login: OK")
+    driver.quit()
+
+teste_login()
